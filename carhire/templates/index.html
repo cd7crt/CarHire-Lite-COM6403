@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Cars – CarHire Lite{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>Choose your car</h1>
+  <p class="muted">Prices are per day. Long rentals get up to 20% off.</p>
+</section>
+
+<form class="search" method="get" action="{{ url_for('web.index') }}" role="search">
+  <label for="q" class="sr-only">Search by make</label>
+  <input id="q" name="q" type="search" placeholder="Search by make, e.g. Ford" value="{{ query }}" data-testid="search-input">
+  <button type="submit" class="btn" data-testid="search-button">Search</button>
+  {% if query %}<a class="btn btn-ghost" href="{{ url_for('web.index') }}" data-testid="search-clear">Clear</a>{% endif %}
+</form>
+
+{% if cars %}
+<table class="table" data-testid="car-table">
+  <thead>
+    <tr><th>Car</th><th>Category</th><th>Seats</th><th class="num">Per day</th><th></th></tr>
+  </thead>
+  <tbody>
+    {% for car in cars %}
+    <tr data-testid="car-row" data-car-id="{{ car['id'] }}">
+      <td><strong>{{ car['make'] }}</strong> {{ car['model'] }}</td>
+      <td><span class="tag tag-{{ car['category']|lower }}">{{ car['category'] }}</span></td>
+      <td>{{ car['seats'] }}</td>
+      <td class="num" data-testid="car-rate">£{{ '%.2f'|format(car['daily_rate']) }}</td>
+      <td class="num"><a class="btn btn-small" href="{{ url_for('web.book', car_id=car['id']) }}" data-testid="book-{{ car['id'] }}">Book</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty" data-testid="no-results">No cars match “{{ query }}”.</p>
+{% endif %}
+{% endblock %}

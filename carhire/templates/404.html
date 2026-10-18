@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Not found – CarHire Lite{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>Not found</h1>
+  <p class="muted" data-testid="not-found">{{ message or "The page you asked for does not exist." }}</p>
+  <p><a class="btn" href="{{ url_for('web.index') }}">Back to cars</a></p>
+</section>
+{% endblock %}

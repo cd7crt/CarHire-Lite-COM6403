@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Booking {{ booking['reference'] }} – CarHire Lite{% endblock %}
+{% block content %}
+<section class="page-head">
+  <p class="muted">Booking reference</p>
+  <h1 class="ref" data-testid="booking-reference">{{ booking['reference'] }}</h1>
+  <span class="status status-{{ booking['status']|lower }}" data-testid="booking-status">{{ booking['status'] }}</span>
+</section>
+
+<div class="split">
+  <div class="card">
+    <h2>Details</h2>
+    <dl class="details">
+      <dt>Car</dt><dd data-testid="booking-car">{{ booking['make'] }} {{ booking['model'] }} ({{ booking['category'] }})</dd>
+      <dt>Customer</dt><dd data-testid="booking-name">{{ booking['customer_name'] }}</dd>
+      <dt>E-mail</dt><dd data-testid="booking-email">{{ booking['customer_email'] }}</dd>
+      <dt>Driver age</dt><dd data-testid="booking-age">{{ booking['driver_age'] }}</dd>
+      <dt>Licence</dt><dd data-testid="booking-licence">{{ booking['licence_number'] }}</dd>
+      <dt>Pick-up</dt><dd data-testid="booking-pickup">{{ booking['pickup_date'] }} at 10:00</dd>
+      <dt>Return</dt><dd data-testid="booking-return">{{ booking['return_date'] }}</dd>
+      <dt>Extras</dt>
+      <dd data-testid="booking-extras">
+        {% if booking['gps'] %}Sat-nav / GPS{% endif %}{% if booking['gps'] and booking['insurance'] %}, {% endif %}{% if booking['insurance'] %}Full insurance{% endif %}
+        {% if not booking['gps'] and not booking['insurance'] %}None{% endif %}
+      </dd>
+      {% if booking['actual_return_date'] %}
+      <dt>Returned on</dt><dd data-testid="booking-actual-return">{{ booking['actual_return_date'] }}</dd>
+      {% endif %}
+    </dl>
+  </div>
+
+  <div class="card">
+    <h2>Price</h2>
+    <table class="price" data-testid="price-breakdown">
+      <tr><td>{{ booking['days'] }} day{{ '' if booking['days'] == 1 else 's' }} × £{{ '%.2f'|format(booking['daily_rate']) }}</td><td class="num" data-testid="price-base">£{{ booking['base_price'] }}</td></tr>
+      <tr><td>Long-rental discount</td><td class="num" data-testid="price-discount">−£{{ booking['discount'] }}</td></tr>
+      <tr><td>Young-driver surcharge</td><td class="num" data-testid="price-surcharge">£{{ booking['surcharge'] }}</td></tr>
+      <tr><td>Extras</td><td class="num" data-testid="price-extras">£{{ booking['extras_price'] }}</td></tr>
+      <tr class="total"><td>Total</td><td class="num" data-testid="price-total">£{{ booking['total_price'] }}</td></tr>
+      {% if booking['refund_amount'] is not none %}
+      <tr class="adjust"><td>Refund</td><td class="num" data-testid="price-refund">£{{ booking['refund_amount'] }}</td></tr>
+      {% endif %}
+      {% if booking['late_fee'] is not none %}
+      <tr class="adjust"><td>Late-return fee</td><td class="num" data-testid="price-late-fee">£{{ booking['late_fee'] }}</td></tr>
+      {% endif %}
+    </table>
+  </div>
+</div>
+
+<section class="card actions">
+  <h2>Actions</h2>
+  <div class="action-row">
+    {% if booking['status'] not in ('CANCELLED', 'RETURNED') %}
+    <form method="post" action="{{ url_for('web.cancel', reference=booking['reference']) }}">
+      <button type="submit" class="btn btn-danger" data-testid="action-cancel">Cancel booking</button>
+    </form>
+    {% endif %}
+
+    {% if booking['status'] == 'CONFIRMED' %}
+    <form method="post" action="{{ url_for('web.pick_up', reference=booking['reference']) }}">
+      <button type="submit" class="btn" data-testid="action-pickup">Staff: record pick-up</button>
+    </form>
+    {% endif %}
+
+    {% if booking['status'] == 'PICKED_UP' %}
+    <form method="post" action="{{ url_for('web.return_car', reference=booking['reference']) }}" class="inline-form">
+      <label for="actual_return_date">Actual return date</label>
+      <input id="actual_return_date" name="actual_return_date" type="date" value="{{ booking['return_date'] }}" data-testid="actual_return_date">
+      <button type="submit" class="btn" data-testid="action-return">Staff: record return</button>
+    </form>
+    {% endif %}
+
+    {% if booking['status'] in ('CANCELLED', 'RETURNED') %}
+    <p class="muted" data-testid="no-actions">This booking is closed. No further actions are available.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

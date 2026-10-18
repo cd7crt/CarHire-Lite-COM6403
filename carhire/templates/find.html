@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Find my booking – CarHire Lite{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>Find my booking</h1>
+  <p class="muted">Enter the reference from your confirmation, e.g. CH-1A2B3C.</p>
+</section>
+
+<form class="search" method="get" action="{{ url_for('web.find_booking') }}">
+  <label for="reference" class="sr-only">Booking reference</label>
+  <input id="reference" name="reference" placeholder="CH-XXXXXX" value="{{ reference }}" data-testid="find-reference">
+  <button type="submit" class="btn" data-testid="find-button">Find</button>
+</form>
+{% endblock %}

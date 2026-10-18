@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Book {{ car['make'] }} {{ car['model'] }} – CarHire Lite{% endblock %}
+{% block content %}
+<section class="page-head">
+  <a class="back" href="{{ url_for('web.index') }}">← All cars</a>
+  <h1>Book the {{ car['make'] }} {{ car['model'] }}</h1>
+  <p class="muted">
+    <span class="tag tag-{{ car['category']|lower }}">{{ car['category'] }}</span>
+    £{{ '%.2f'|format(car['daily_rate']) }} per day · {{ car['seats'] }} seats
+  </p>
+</section>
+
+{% if errors.get('form') %}
+  <div class="flash flash-error" role="alert" data-testid="error-form">{{ errors['form'] }}</div>
+{% elif errors %}
+  <div class="flash flash-error" role="alert" data-testid="error-summary">Please correct the highlighted fields.</div>
+{% endif %}
+
+<div class="split">
+  <form class="card form" method="post" novalidate data-testid="booking-form">
+    <fieldset>
+      <legend>Your details</legend>
+
+      <label for="customer_name">Full name</label>
+      <input id="customer_name" name="customer_name" value="{{ form.get('customer_name', '') }}" data-testid="customer_name"
+             {% if errors.get('customer_name') %}aria-invalid="true"{% endif %}>
+      {% if errors.get('customer_name') %}<p class="field-error" data-testid="error-customer_name">{{ errors['customer_name'] }}</p>{% endif %}
+
+      <label for="customer_email">E-mail</label>
+      <input id="customer_email" name="customer_email" type="email" value="{{ form.get('customer_email', '') }}" data-testid="customer_email"
+             {% if errors.get('customer_email') %}aria-invalid="true"{% endif %}>
+      {% if errors.get('customer_email') %}<p class="field-error" data-testid="error-customer_email">{{ errors['customer_email'] }}</p>{% endif %}
+
+      <div class="row">
+        <div>
+          <label for="driver_age">Driver age</label>
+          <input id="driver_age" name="driver_age" inputmode="numeric" value="{{ form.get('driver_age', '') }}" data-testid="driver_age"
+                 {% if errors.get('driver_age') %}aria-invalid="true"{% endif %}>
+        </div>
+        <div>
+          <label for="licence_number">Driving licence number</label>
+          <input id="licence_number" name="licence_number" value="{{ form.get('licence_number', '') }}" data-testid="licence_number"
+                 {% if errors.get('licence_number') %}aria-invalid="true"{% endif %}>
+        </div>
+      </div>
+      {% if errors.get('driver_age') %}<p class="field-error" data-testid="error-driver_age">{{ errors['driver_age'] }}</p>{% endif %}
+      {% if errors.get('licence_number') %}<p class="field-error" data-testid="error-licence_number">{{ errors['licence_number'] }}</p>{% endif %}
+    </fieldset>
+
+    <fieldset>
+      <legend>Rental dates</legend>
+      <div class="row">
+        <div>
+          <label for="pickup_date">Pick-up date (10:00)</label>
+          <input id="pickup_date" name="pickup_date" type="date" value="{{ form.get('pickup_date', '') }}" data-testid="pickup_date"
+                 {% if errors.get('pickup_date') %}aria-invalid="true"{% endif %}>
+        </div>
+        <div>
+          <label for="return_date">Return date</label>
+          <input id="return_date" name="return_date" type="date" value="{{ form.get('return_date', '') }}" data-testid="return_date"
+                 {% if errors.get('return_date') %}aria-invalid="true"{% endif %}>
+        </div>
+      </div>
+      {% if errors.get('pickup_date') %}<p class="field-error" data-testid="error-pickup_date">{{ errors['pickup_date'] }}</p>{% endif %}
+      {% if errors.get('return_date') %}<p class="field-error" data-testid="error-return_date">{{ errors['return_date'] }}</p>{% endif %}
+    </fieldset>
+
+    <fieldset>
+      <legend>Extras</legend>
+      <label class="check">
+        <input type="checkbox" name="sat_nav" data-testid="extra-gps" {% if form.get('sat_nav') %}checked{% endif %}>
+        Sat-nav / GPS <span class="muted">+£5.00 per day</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="insurance" value="true" data-testid="extra-insurance" {% if form.get('insurance') %}checked{% endif %}>
+        Full insurance cover <span class="muted">+£12.00 per day</span>
+      </label>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary" data-testid="submit-booking">Confirm booking</button>
+  </form>
+
+  <aside class="card aside">
+    <h2>How your price is worked out</h2>
+    <ul class="plain">
+      <li>Daily rate × number of days</li>
+      <li>7–13 days: 10% off the car price</li>
+      <li>14–28 days: 20% off the car price</li>
+      <li>Drivers aged 21–24: +£15.00 per day</li>
+      <li>Extras are charged per day</li>
+    </ul>
+    <h2>Cancellations</h2>
+    <ul class="plain">
+      <li>48+ hours before pick-up: full refund</li>
+      <li>24–48 hours: 50% refund</li>
+      <li>Under 24 hours: no refund</li>
+    </ul>
+  </aside>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}All bookings – CarHire Lite{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>All bookings</h1>
+  <p class="muted">Staff view · newest first</p>
+</section>
+
+{% if bookings %}
+<table class="table" data-testid="bookings-table">
+  <thead>
+    <tr><th>Reference</th><th>Car</th><th>Customer</th><th>Pick-up</th><th>Return</th><th>Status</th><th class="num">Total</th></tr>
+  </thead>
+  <tbody>
+    {% for b in bookings %}
+    <tr data-testid="booking-row">
+      <td><a href="{{ url_for('web.booking_detail', reference=b['reference']) }}">{{ b['reference'] }}</a></td>
+      <td>{{ b['make'] }} {{ b['model'] }}</td>
+      <td>{{ b['customer_name'] }}</td>
+      <td>{{ b['pickup_date'] }}</td>
+      <td>{{ b['return_date'] }}</td>
+      <td><span class="status status-{{ b['status']|lower }}">{{ b['status'] }}</span></td>
+      <td class="num">£{{ b['total_price'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty" data-testid="no-bookings">No bookings yet.</p>
+{% endif %}
+{% endblock %}

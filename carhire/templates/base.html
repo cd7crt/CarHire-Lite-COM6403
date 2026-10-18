@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}CarHire Lite{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="{{ url_for('web.index') }}" data-testid="brand">CarHire<span>Lite</span></a>
+      <nav class="nav">
+        <a href="{{ url_for('web.index') }}" data-testid="nav-cars">Cars</a>
+        <a href="{{ url_for('web.find_booking') }}" data-testid="nav-find">Find my booking</a>
+        <a href="{{ url_for('web.bookings') }}" class="nav-staff" data-testid="nav-bookings">Staff: all bookings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="flash flash-{{ category }}" role="status" data-testid="flash-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="wrap footer">
+    <span>CarHire Lite v1.0</span>
+    <span data-testid="system-date">System date: {{ system_now.strftime('%Y-%m-%d %H:%M') }}</span>
+  </footer>
+</body>
+</html>
