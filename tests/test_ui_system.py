@@ -1,7 +1,8 @@
 import random
 from datetime import datetime, timedelta
-from playwright.sync_api import Page, expect
 
+import random
+from datetime import datetime, timedelta
 import urllib.request
 import pytest
 
@@ -11,6 +12,7 @@ try:
 except OSError:
     pytest.skip("UI tests need the app running: python run.py", allow_module_level=True)
 
+from playwright.sync_api import Page, expect
 BASE_URL = "http://127.0.0.1:5000"
 
 def test_tc07_happy_path_ui(page: Page):
