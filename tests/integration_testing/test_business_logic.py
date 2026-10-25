@@ -63,10 +63,10 @@ def test_tc02_invalid_state_transition(client):
 
     payload = {
         "car_id": 1,
-        "customer_name": "Test User",
-        "customer_email": "test@domain.com",
+        "customer_name": "Victor Afuye",
+        "customer_email": "info@victorafuye.com",
         "driver_age": 25,
-        "licence_number": "LICENCE123456789",
+        "licence_number": "VICTORA200456034",
         "pickup_date": "2027-02-10",
         "return_date": "2027-02-12",
         "gps": False,
@@ -81,7 +81,7 @@ def test_tc02_invalid_state_transition(client):
 
     return_res = client.post(
         f"/api/bookings/{booking_reference}/return",
-        json={"actual_return_date": "2026-11-12"},
+        json={"actual_return_date": "2027-02-12"},
     )
 
 
