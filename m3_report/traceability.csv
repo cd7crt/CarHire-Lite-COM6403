@@ -1,0 +1,10 @@
+﻿Requirement,Criterion,Cases,Observed coverage,Defects,Limits
+BR-01,Age eligibility and whole number input,UTB-01,22/23 pass in combined BR-01/02 family; age 21 ECONOMY fails,M3-DEF-01,Finite chosen values; no exhaustive type coverage
+BR-02,Luxury minimum age,UTB-01,Selected LUXURY age rows pass,None observed,No HTTP or booking acceptance claim
+BR-03,Pickup dates duration and input format,UTB-03,14 pass / 1 fail,M3-DEF-02,Fixed today; no time-zone or web parsing claim
+BR-04,Base price,UTB-02 UTB-07 UTB-08,Base field passes in selected quote rows,No base-field defect observed,£40 daily rate only
+BR-05,Base-only duration discount,UTB-02 UTB-07 UTB-08,14-day discount fails,M3-DEF-05,Finite durations; no full price/rate cross-product
+BR-06,Young driver daily surcharge,UTB-02 UTB-08,All eight age-24 decision rows fail surcharge,M3-DEF-06,Direct pricing at age 24/25/30; ages 21–23 surcharge not sampled
+BR-07,Extras total and half-up rounding,UTB-02 UTB-08 UTB-10,Extras fields and rounding samples pass; totals expose BR-06 error,M3-DEF-06 affects totals,No UI currency-format or persistence claim
+BR-08,Refund percentage and 10am pickup,UTB-09,14 pass / 2 fail,M3-DEF-07,CONFIRMED-only cancellation rule not tested; integration/system needed
+BR-12,Name email and licence input,UTB-04 UTB-05 UTB-06,27 pass / 4 fail,M3-DEF-03 M3-DEF-04,Uppercase returned by validator; database storage not tested; ASCII licence samples only

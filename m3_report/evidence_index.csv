@@ -1,0 +1,7 @@
+﻿Evidence ID,Description,Project relative path
+E-M3-08,Case catalogue and pytest entry points,tests/unit/m3_blackbox_cases.py; tests/unit/test_m3_blackbox.py; tests/unit/test_m3_assessment.py
+E-M3-09,Full regression pytest execution: 100 passed and 17 failed,evidence/m3/regression_console.txt
+E-M3-A1,Four-case pytest console,evidence/m3/assessment/console.txt
+E-M3-A2,Four-case pytest JUnit results,evidence/m3/assessment/pytest.xml
+E-M3-A3,Four-case row results,evidence/m3/assessment/results.csv
+E-M3-A4,Detailed observation rerun checked against pytest,evidence/m3/assessment/observations.json

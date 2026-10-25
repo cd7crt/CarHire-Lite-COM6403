@@ -1,0 +1,11 @@
+﻿ID,Objective,Catalogue scope,Parameter rows,Pass,Fail,Error,Parent status
+UTB-01,Driver eligibility and age boundaries,Original 117-row regression catalogue,23,22,1,0,FAIL
+UTB-02,Seven day worked price example,Original 117-row regression catalogue,1,1,0,0,PASS
+UTB-03,Rental date validity and boundaries,Original 117-row regression catalogue,15,14,1,0,FAIL
+UTB-04,Customer name length and trimming,Original 117-row regression catalogue,11,11,0,0,PASS
+UTB-05,Email grammar and spaces,Original 117-row regression catalogue,11,7,4,0,FAIL
+UTB-06,Licence length characters and uppercase,Original 117-row regression catalogue,9,9,0,0,PASS
+UTB-07,Discount duration boundaries,Original 117-row regression catalogue,8,7,1,0,FAIL
+UTB-08,Surcharge and extras decision table,Original 117-row regression catalogue,16,8,8,0,FAIL
+UTB-09,Refund boundaries and pickup time,Original 117-row regression catalogue,16,14,2,0,FAIL
+UTB-10,Money rounding half up,Original 117-row regression catalogue,7,7,0,0,PASS

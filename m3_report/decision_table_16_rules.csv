@@ -1,0 +1,17 @@
+﻿Rule,Row ID,Age,Days,GPS,Insurance,Base,Discount,Expected surcharge,Extras,Expected total,Actual surcharge,Actual total,Result
+1,UTB-08-age-24-days-6-gps-0-ins-0,24,6,False,False,240.00,0.00,90.00,0.00,330.00,15.00,255.00,FAIL
+2,UTB-08-age-24-days-6-gps-0-ins-1,24,6,False,True,240.00,0.00,90.00,72.00,402.00,15.00,327.00,FAIL
+3,UTB-08-age-24-days-6-gps-1-ins-0,24,6,True,False,240.00,0.00,90.00,30.00,360.00,15.00,285.00,FAIL
+4,UTB-08-age-24-days-6-gps-1-ins-1,24,6,True,True,240.00,0.00,90.00,102.00,432.00,15.00,357.00,FAIL
+5,UTB-08-age-24-days-7-gps-0-ins-0,24,7,False,False,280.00,28.00,105.00,0.00,357.00,15.00,267.00,FAIL
+6,UTB-08-age-24-days-7-gps-0-ins-1,24,7,False,True,280.00,28.00,105.00,84.00,441.00,15.00,351.00,FAIL
+7,UTB-08-age-24-days-7-gps-1-ins-0,24,7,True,False,280.00,28.00,105.00,35.00,392.00,15.00,302.00,FAIL
+8,UTB-08-age-24-days-7-gps-1-ins-1,24,7,True,True,280.00,28.00,105.00,119.00,476.00,15.00,386.00,FAIL
+9,UTB-08-age-25-days-6-gps-0-ins-0,25,6,False,False,240.00,0.00,0.00,0.00,240.00,0.00,240.00,PASS
+10,UTB-08-age-25-days-6-gps-0-ins-1,25,6,False,True,240.00,0.00,0.00,72.00,312.00,0.00,312.00,PASS
+11,UTB-08-age-25-days-6-gps-1-ins-0,25,6,True,False,240.00,0.00,0.00,30.00,270.00,0.00,270.00,PASS
+12,UTB-08-age-25-days-6-gps-1-ins-1,25,6,True,True,240.00,0.00,0.00,102.00,342.00,0.00,342.00,PASS
+13,UTB-08-age-25-days-7-gps-0-ins-0,25,7,False,False,280.00,28.00,0.00,0.00,252.00,0.00,252.00,PASS
+14,UTB-08-age-25-days-7-gps-0-ins-1,25,7,False,True,280.00,28.00,0.00,84.00,336.00,0.00,336.00,PASS
+15,UTB-08-age-25-days-7-gps-1-ins-0,25,7,True,False,280.00,28.00,0.00,35.00,287.00,0.00,287.00,PASS
+16,UTB-08-age-25-days-7-gps-1-ins-1,25,7,True,True,280.00,28.00,0.00,119.00,371.00,0.00,371.00,PASS

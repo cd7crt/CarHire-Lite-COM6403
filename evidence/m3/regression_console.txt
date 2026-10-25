@@ -1,0 +1,278 @@
+Failed to find real location of C:\Users\chris\AppData\Local\Python\pythoncore-3.15-64\python.exe
+.F....................................F.................FFFF............ [ 61%]
+...F..FFFFFFFF........F.F....................                            [100%]
+================================== FAILURES ===================================
+____________________ test_specification[UTB-01-economy-21] ____________________
+
+case = {'case_id': 'UTB-01', 'row_id': 'UTB-01-economy-21', 'requirements': ['BR-01', 'BR-02'], 'technique': 'Equivalence partitioning / boundary values / decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-01-economy-21 ['BR-01', 'BR-02']: {'valid': {'expected': True, 'actual': False}}
+E       assert not {'valid': {'expected': True, 'actual': False}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+___________________ test_specification[UTB-03-compact-date] ___________________
+
+case = {'case_id': 'UTB-03', 'row_id': 'UTB-03-compact-date', 'requirements': ['BR-03'], 'technique': 'Equivalence partitioning / boundary values / decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-03-compact-date ['BR-03']: {'valid': {'expected': False, 'actual': True}}
+E       assert not {'valid': {'expected': False, 'actual': True}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+______________________ test_specification[UTB-05-no-dot] ______________________
+
+case = {'case_id': 'UTB-05', 'row_id': 'UTB-05-no-dot', 'requirements': ['BR-12'], 'technique': 'Equivalence partitioning / boundary values / decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-05-no-dot ['BR-12']: {'valid': {'expected': False, 'actual': True}}
+E       assert not {'valid': {'expected': False, 'actual': True}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+__________________ test_specification[UTB-05-leading-space] ___________________
+
+case = {'case_id': 'UTB-05', 'row_id': 'UTB-05-leading-space', 'requirements': ['BR-12'], 'technique': 'Equivalence partitioning / boundary values / decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-05-leading-space ['BR-12']: {'valid': {'expected': False, 'actual': True}}
+E       assert not {'valid': {'expected': False, 'actual': True}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+__________________ test_specification[UTB-05-internal-space] __________________
+
+case = {'case_id': 'UTB-05', 'row_id': 'UTB-05-internal-space', 'requirements': ['BR-12'], 'technique': 'Equivalence partitioning / boundary values / decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-05-internal-space ['BR-12']: {'valid': {'expected': False, 'actual': True}}
+E       assert not {'valid': {'expected': False, 'actual': True}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+__________________ test_specification[UTB-05-trailing-space] __________________
+
+case = {'case_id': 'UTB-05', 'row_id': 'UTB-05-trailing-space', 'requirements': ['BR-12'], 'technique': 'Equivalence partitioning / boundary values / decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-05-trailing-space ['BR-12']: {'valid': {'expected': False, 'actual': True}}
+E       assert not {'valid': {'expected': False, 'actual': True}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+_____________________ test_specification[UTB-07-days-14] ______________________
+
+case = {'case_id': 'UTB-07', 'row_id': 'UTB-07-days-14', 'requirements': ['BR-04', 'BR-05'], 'technique': 'Boundary value analysis', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-07-days-14 ['BR-04', 'BR-05']: {'discount': {'expected': '112.00', 'actual': '56.00'}, 'total': {'expected': '448.00', 'actual': '504.00'}}
+E       assert not {'discount': {'expected': '112.00', 'actual': '56.00'}, 'total': {'expected': '448.00', 'actual': '504.00'}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+____________ test_specification[UTB-08-age-24-days-6-gps-0-ins-0] _____________
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-0-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-6-gps-0-ins-0 ['BR-04', 'BR-05', 'BR-06', 'BR-07']: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '330.00', 'actual': '255.00'}}
+E       assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '330.00', 'actual': '255.00'}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+____________ test_specification[UTB-08-age-24-days-6-gps-0-ins-1] _____________
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-0-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-6-gps-0-ins-1 ['BR-04', 'BR-05', 'BR-06', 'BR-07']: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '402.00', 'actual': '327.00'}}
+E       assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '402.00', 'actual': '327.00'}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+____________ test_specification[UTB-08-age-24-days-6-gps-1-ins-0] _____________
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-1-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-6-gps-1-ins-0 ['BR-04', 'BR-05', 'BR-06', 'BR-07']: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '360.00', 'actual': '285.00'}}
+E       assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '360.00', 'actual': '285.00'}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+____________ test_specification[UTB-08-age-24-days-6-gps-1-ins-1] _____________
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-1-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-6-gps-1-ins-1 ['BR-04', 'BR-05', 'BR-06', 'BR-07']: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '432.00', 'actual': '357.00'}}
+E       assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '432.00', 'actual': '357.00'}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+____________ test_specification[UTB-08-age-24-days-7-gps-0-ins-0] _____________
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-0-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-7-gps-0-ins-0 ['BR-04', 'BR-05', 'BR-06', 'BR-07']: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '357.00', 'actual': '267.00'}}
+E       assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '357.00', 'actual': '267.00'}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+____________ test_specification[UTB-08-age-24-days-7-gps-0-ins-1] _____________
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-0-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-7-gps-0-ins-1 ['BR-04', 'BR-05', 'BR-06', 'BR-07']: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '441.00', 'actual': '351.00'}}
+E       assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '441.00', 'actual': '351.00'}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+____________ test_specification[UTB-08-age-24-days-7-gps-1-ins-0] _____________
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-1-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-7-gps-1-ins-0 ['BR-04', 'BR-05', 'BR-06', 'BR-07']: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '392.00', 'actual': '302.00'}}
+E       assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '392.00', 'actual': '302.00'}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+____________ test_specification[UTB-08-age-24-days-7-gps-1-ins-1] _____________
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-1-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-7-gps-1-ins-1 ['BR-04', 'BR-05', 'BR-06', 'BR-07']: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '476.00', 'actual': '386.00'}}
+E       assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '476.00', 'actual': '386.00'}}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+________________ test_specification[UTB-09-refund-48h-plus-1m] ________________
+
+case = {'case_id': 'UTB-09', 'row_id': 'UTB-09-refund-48h-plus-1m', 'requirements': ['BR-08'], 'technique': 'Boundary value analysis', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-09-refund-48h-plus-1m ['BR-08']: {'expected': '100.00', 'actual': '50.00'}
+E       assert not {'expected': '100.00', 'actual': '50.00'}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+____________________ test_specification[UTB-09-refund-48h] ____________________
+
+case = {'case_id': 'UTB-09', 'row_id': 'UTB-09-refund-48h', 'requirements': ['BR-08'], 'technique': 'Boundary value analysis', ...}
+
+    @pytest.mark.parametrize("case", CASES, ids=[case["row_id"] for case in CASES])
+    def test_specification(case):
+        # Call the application with this row's inputs, then compare with the specification.
+        actual = observe(case)
+        mismatch = differences(case, actual)
+        # Any difference fails the test and shows the row ID, rule and mismatched values.
+>       assert not mismatch, f"{case['row_id']} {case['requirements']}: {mismatch}"
+E       AssertionError: UTB-09-refund-48h ['BR-08']: {'expected': '100.00', 'actual': '50.00'}
+E       assert not {'expected': '100.00', 'actual': '50.00'}
+
+tests\unit\test_m3_blackbox.py:13: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-01-economy-21]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-03-compact-date]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-05-no-dot] - As...
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-05-leading-space]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-05-internal-space]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-05-trailing-space]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-07-days-14] - A...
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-08-age-24-days-6-gps-0-ins-0]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-08-age-24-days-6-gps-0-ins-1]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-08-age-24-days-6-gps-1-ins-0]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-08-age-24-days-6-gps-1-ins-1]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-08-age-24-days-7-gps-0-ins-0]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-08-age-24-days-7-gps-0-ins-1]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-08-age-24-days-7-gps-1-ins-0]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-08-age-24-days-7-gps-1-ins-1]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-09-refund-48h-plus-1m]
+FAILED tests/unit/test_m3_blackbox.py::test_specification[UTB-09-refund-48h]
+17 failed, 100 passed in 1.25s

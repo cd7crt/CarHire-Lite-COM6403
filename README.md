@@ -171,3 +171,39 @@ client = app.test_client()                     # Flask's built-in HTTP client
 
 Setting `"TESTING": True` makes Flask pass exceptions through instead of turning
 them into HTTP 500 pages.
+
+
+## Tests
+
+The `tests/` folder holds the team's automated tests, grouped by member. Install the test tools first:
+
+```
+pip install -r requirements-dev.txt
+```
+
+Run every test from the project folder with `python -m pytest`. Some tests fail on purpose: v1.0 contains defects, and each failing test is evidence of one. The full results and the defect log are in the team report.
+
+### M3: Black-box unit tests (Christos Dimitriou)
+
+Run the four cases in the report (55 test rows). On v1.0 the expected result is 44 passed and 11 failed:
+
+```
+python -m pytest tests/unit/test_m3_assessment.py -v
+```
+
+| Case | What it checks | Rows |
+|---|---|---:|
+| UTB-01 | Driver age limits, category rules and invalid ages | 23 |
+| UTB-02 | Worked price example and 16 combinations of discount, surcharge and extras | 17 |
+| UTB-09 | Refunds around the 24-hour and 48-hour cutoffs | 8 |
+| UTB-10 | Half-up rounding to two decimal places | 7 |
+
+Rows in UTB-02 keep their original UTB-08 IDs.
+
+Run the full M3 regression set (117 rows; expected 100 passed, 17 failed):
+
+```
+python -m pytest tests/unit/test_m3_blackbox.py -v
+```
+
+Saved results are in `evidence/m3/`. `m3_report/evidence_index.csv` maps each evidence ID used in the report to its file.
