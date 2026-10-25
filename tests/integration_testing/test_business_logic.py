@@ -31,8 +31,8 @@ def test_tc01_booking_creation_api_and_db_integration(client):
         "customer_email": "jay.zikhali@swe.com",
         "driver_age": 33,
         "licence_number": "AJNXJSNJUYRSGOYT",
-        "pickup_date": "2026-11-01",
-        "return_date": "2026-11-05",
+        "pickup_date": "2027-02-01",
+        "return_date": "2027-02-05",
         "gps": False,
         "insurance": False,
     }
@@ -67,8 +67,8 @@ def test_tc02_invalid_state_transition(client):
         "customer_email": "test@domain.com",
         "driver_age": 25,
         "licence_number": "LICENCE123456789",
-        "pickup_date": "2026-11-10",
-        "return_date": "2026-11-12",
+        "pickup_date": "2027-02-10",
+        "return_date": "2027-02-12",
         "gps": False,
         "insurance": False,
     }
