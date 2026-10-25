@@ -1,0 +1,1724 @@
+{
+  "recorded_utc": "2026-10-22T20:06:31.684405+00:00",
+  "python": "3.15.1 (tags/v3.15.1:c37e74c, Oct 21 2026, 06:24:08) [MSC v.1951 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "note": "Detailed observation rerun; every outcome checked against the saved pytest XML.",
+  "source_sha256": {
+    "carhire/api.py": "e6077acc63b8d536d54f670c0527a3a1928327ae39b515992df667a37a0055e9",
+    "carhire/clock.py": "f2b7687fe4d2aadcd995ac1f818fb390ae6f4286800dad2871ed80f51186766d",
+    "carhire/config.py": "018657a59d072b5c1f1bdbd3b38ef4120bbfea7775ba5449747011e200283274",
+    "carhire/db.py": "660febbd184b4086c07a0cebb7174783cbf87f0f302790cc296139225f2f350c",
+    "carhire/exceptions.py": "51285e8f366b495a1fad883d0e0878b8f1756d9ada37ce29e403b95c99210af8",
+    "carhire/pricing.py": "7d6e4c25b411dd6c23fcaf110a6d78424909139fc2144eeb9a9a506d94956c55",
+    "carhire/repository.py": "c8d0e580dec3a2fba695b9f880e0a2c837731ba20cc6bd8bcef5181581ec810c",
+    "carhire/services.py": "67c435bb145590e5337b64061e4275a5208d246b86b31c3d21fdfa5a48fa47ae",
+    "carhire/validation.py": "c900fc717666c25cbdca39ad97667e05970b0dc581263bed50d6ef302c0550a7",
+    "carhire/web.py": "35a739dbdecda639c629119549f14181adbfac4fa8b764412d38e7701925facf",
+    "carhire/__init__.py": "ba64552c9a67eb952edfcac3058510b8c4fff62fd49a23978a72471c9e72b219"
+  },
+  "results": [
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-economy-20",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 20 for ECONOMY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "20",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver must be aged between 21 and 75."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-economy-21",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 21 for ECONOMY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "21",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver must be aged between 21 and 75."
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-economy-22",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 22 for ECONOMY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "22",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true,
+        "returned": {
+          "driver_age": 22,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-economy-24",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 24 for ECONOMY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "24",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true,
+        "returned": {
+          "driver_age": 24,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-economy-25",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 25 for ECONOMY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "25",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true,
+        "returned": {
+          "driver_age": 25,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-economy-26",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 26 for ECONOMY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "26",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true,
+        "returned": {
+          "driver_age": 26,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-economy-74",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 74 for ECONOMY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "74",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true,
+        "returned": {
+          "driver_age": 74,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-economy-75",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 75 for ECONOMY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "75",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true,
+        "returned": {
+          "driver_age": 75,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-economy-76",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 76 for ECONOMY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "76",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver must be aged between 21 and 75."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-luxury-20",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 20 for LUXURY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "20",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "LUXURY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver must be aged between 21 and 75."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-luxury-21",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 21 for LUXURY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "21",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "LUXURY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver must be aged between 21 and 75."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-luxury-22",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 22 for LUXURY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "22",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "LUXURY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Drivers must be at least 25 to hire a luxury car."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-luxury-24",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 24 for LUXURY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "24",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "LUXURY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Drivers must be at least 25 to hire a luxury car."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-luxury-25",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 25 for LUXURY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "25",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "LUXURY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true,
+        "returned": {
+          "driver_age": 25,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-luxury-26",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 26 for LUXURY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "26",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "LUXURY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true,
+        "returned": {
+          "driver_age": 26,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-luxury-74",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 74 for LUXURY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "74",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "LUXURY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true,
+        "returned": {
+          "driver_age": 74,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-luxury-75",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 75 for LUXURY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "75",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "LUXURY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true,
+        "returned": {
+          "driver_age": 75,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-luxury-76",
+      "requirements": [
+        "BR-01",
+        "BR-02"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Eligibility at age 76 for LUXURY",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "76",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "LUXURY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver must be aged between 21 and 75."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-fraction-text",
+      "requirements": [
+        "BR-01"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Reject a non-whole or missing age",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "21.5",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver age must be a whole number."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-fraction-number",
+      "requirements": [
+        "BR-01"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Reject a non-whole or missing age",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": 21.5,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver age must be a whole number."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-letters",
+      "requirements": [
+        "BR-01"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Reject a non-whole or missing age",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "abc",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver age must be a whole number."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-empty",
+      "requirements": [
+        "BR-01"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Reject a non-whole or missing age",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": "",
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver age must be a whole number."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-01",
+      "case_id": "UTB-01",
+      "row_id": "UTB-01-missing",
+      "requirements": [
+        "BR-01"
+      ],
+      "technique": "Equivalence partitioning / boundary values / decision table",
+      "objective": "Reject a non-whole or missing age",
+      "kind": "validation",
+      "inputs": {
+        "data": {
+          "driver_age": null,
+          "pickup_date": "2026-11-10",
+          "return_date": "2026-11-17",
+          "gps": false,
+          "insurance": false
+        },
+        "category": "ECONOMY",
+        "today": "2026-11-01"
+      },
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false,
+        "errors": {
+          "driver_age": "Driver age must be a whole number."
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-02",
+      "row_id": "UTB-02-worked-example",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Valid equivalence partition",
+      "objective": "The specification's \u00a340/day, seven-day worked example",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 7,
+        "driver_age": 30,
+        "gps": false,
+        "insurance": false
+      },
+      "expected": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "0.00",
+        "extras": "0.00",
+        "total": "252.00"
+      },
+      "actual": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "0.00",
+        "extras": "0.00",
+        "total": "252.00"
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-24-days-6-gps-0-ins-0",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 6,
+        "driver_age": 24,
+        "gps": false,
+        "insurance": false
+      },
+      "expected": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "90.00",
+        "extras": "0.00",
+        "total": "330.00"
+      },
+      "actual": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "15.00",
+        "extras": "0.00",
+        "total": "255.00"
+      },
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-24-days-6-gps-0-ins-1",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 6,
+        "driver_age": 24,
+        "gps": false,
+        "insurance": true
+      },
+      "expected": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "90.00",
+        "extras": "72.00",
+        "total": "402.00"
+      },
+      "actual": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "15.00",
+        "extras": "72.00",
+        "total": "327.00"
+      },
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-24-days-6-gps-1-ins-0",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 6,
+        "driver_age": 24,
+        "gps": true,
+        "insurance": false
+      },
+      "expected": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "90.00",
+        "extras": "30.00",
+        "total": "360.00"
+      },
+      "actual": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "15.00",
+        "extras": "30.00",
+        "total": "285.00"
+      },
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-24-days-6-gps-1-ins-1",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 6,
+        "driver_age": 24,
+        "gps": true,
+        "insurance": true
+      },
+      "expected": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "90.00",
+        "extras": "102.00",
+        "total": "432.00"
+      },
+      "actual": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "15.00",
+        "extras": "102.00",
+        "total": "357.00"
+      },
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-24-days-7-gps-0-ins-0",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 7,
+        "driver_age": 24,
+        "gps": false,
+        "insurance": false
+      },
+      "expected": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "105.00",
+        "extras": "0.00",
+        "total": "357.00"
+      },
+      "actual": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "15.00",
+        "extras": "0.00",
+        "total": "267.00"
+      },
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-24-days-7-gps-0-ins-1",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 7,
+        "driver_age": 24,
+        "gps": false,
+        "insurance": true
+      },
+      "expected": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "105.00",
+        "extras": "84.00",
+        "total": "441.00"
+      },
+      "actual": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "15.00",
+        "extras": "84.00",
+        "total": "351.00"
+      },
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-24-days-7-gps-1-ins-0",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 7,
+        "driver_age": 24,
+        "gps": true,
+        "insurance": false
+      },
+      "expected": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "105.00",
+        "extras": "35.00",
+        "total": "392.00"
+      },
+      "actual": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "15.00",
+        "extras": "35.00",
+        "total": "302.00"
+      },
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-24-days-7-gps-1-ins-1",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 7,
+        "driver_age": 24,
+        "gps": true,
+        "insurance": true
+      },
+      "expected": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "105.00",
+        "extras": "119.00",
+        "total": "476.00"
+      },
+      "actual": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "15.00",
+        "extras": "119.00",
+        "total": "386.00"
+      },
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-25-days-6-gps-0-ins-0",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 6,
+        "driver_age": 25,
+        "gps": false,
+        "insurance": false
+      },
+      "expected": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "0.00",
+        "extras": "0.00",
+        "total": "240.00"
+      },
+      "actual": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "0.00",
+        "extras": "0.00",
+        "total": "240.00"
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-25-days-6-gps-0-ins-1",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 6,
+        "driver_age": 25,
+        "gps": false,
+        "insurance": true
+      },
+      "expected": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "0.00",
+        "extras": "72.00",
+        "total": "312.00"
+      },
+      "actual": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "0.00",
+        "extras": "72.00",
+        "total": "312.00"
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-25-days-6-gps-1-ins-0",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 6,
+        "driver_age": 25,
+        "gps": true,
+        "insurance": false
+      },
+      "expected": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "0.00",
+        "extras": "30.00",
+        "total": "270.00"
+      },
+      "actual": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "0.00",
+        "extras": "30.00",
+        "total": "270.00"
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-25-days-6-gps-1-ins-1",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 6,
+        "driver_age": 25,
+        "gps": true,
+        "insurance": true
+      },
+      "expected": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "0.00",
+        "extras": "102.00",
+        "total": "342.00"
+      },
+      "actual": {
+        "days": 6,
+        "base": "240.00",
+        "discount": "0.00",
+        "surcharge": "0.00",
+        "extras": "102.00",
+        "total": "342.00"
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-25-days-7-gps-0-ins-0",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 7,
+        "driver_age": 25,
+        "gps": false,
+        "insurance": false
+      },
+      "expected": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "0.00",
+        "extras": "0.00",
+        "total": "252.00"
+      },
+      "actual": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "0.00",
+        "extras": "0.00",
+        "total": "252.00"
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-25-days-7-gps-0-ins-1",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 7,
+        "driver_age": 25,
+        "gps": false,
+        "insurance": true
+      },
+      "expected": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "0.00",
+        "extras": "84.00",
+        "total": "336.00"
+      },
+      "actual": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "0.00",
+        "extras": "84.00",
+        "total": "336.00"
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-25-days-7-gps-1-ins-0",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 7,
+        "driver_age": 25,
+        "gps": true,
+        "insurance": false
+      },
+      "expected": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "0.00",
+        "extras": "35.00",
+        "total": "287.00"
+      },
+      "actual": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "0.00",
+        "extras": "35.00",
+        "total": "287.00"
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-02",
+      "case_id": "UTB-08",
+      "row_id": "UTB-08-age-25-days-7-gps-1-ins-1",
+      "requirements": [
+        "BR-04",
+        "BR-05",
+        "BR-06",
+        "BR-07"
+      ],
+      "technique": "Full 16-rule decision table",
+      "objective": "Discount applies to base only; surcharge and extras are daily",
+      "kind": "quote",
+      "inputs": {
+        "daily_rate": "40.00",
+        "days": 7,
+        "driver_age": 25,
+        "gps": true,
+        "insurance": true
+      },
+      "expected": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "0.00",
+        "extras": "119.00",
+        "total": "371.00"
+      },
+      "actual": {
+        "days": 7,
+        "base": "280.00",
+        "discount": "28.00",
+        "surcharge": "0.00",
+        "extras": "119.00",
+        "total": "371.00"
+      },
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-09",
+      "case_id": "UTB-09",
+      "row_id": "UTB-09-refund-48h-plus-1m",
+      "requirements": [
+        "BR-08"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Refund percentage at 24/48-hour boundaries",
+      "kind": "refund",
+      "inputs": {
+        "total": "100.00",
+        "hours": 48.016666666666666
+      },
+      "expected": "100.00",
+      "actual": "50.00",
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-09",
+      "case_id": "UTB-09",
+      "row_id": "UTB-09-refund-48h",
+      "requirements": [
+        "BR-08"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Refund percentage at 24/48-hour boundaries",
+      "kind": "refund",
+      "inputs": {
+        "total": "100.00",
+        "hours": 48.0
+      },
+      "expected": "100.00",
+      "actual": "50.00",
+      "status": "FAIL"
+    },
+    {
+      "report_id": "UTB-09",
+      "case_id": "UTB-09",
+      "row_id": "UTB-09-refund-48h-minus-1m",
+      "requirements": [
+        "BR-08"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Refund percentage at 24/48-hour boundaries",
+      "kind": "refund",
+      "inputs": {
+        "total": "100.00",
+        "hours": 47.983333333333334
+      },
+      "expected": "50.00",
+      "actual": "50.00",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-09",
+      "case_id": "UTB-09",
+      "row_id": "UTB-09-refund-24h-plus-1m",
+      "requirements": [
+        "BR-08"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Refund percentage at 24/48-hour boundaries",
+      "kind": "refund",
+      "inputs": {
+        "total": "100.00",
+        "hours": 24.016666666666666
+      },
+      "expected": "50.00",
+      "actual": "50.00",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-09",
+      "case_id": "UTB-09",
+      "row_id": "UTB-09-refund-24h",
+      "requirements": [
+        "BR-08"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Refund percentage at 24/48-hour boundaries",
+      "kind": "refund",
+      "inputs": {
+        "total": "100.00",
+        "hours": 24.0
+      },
+      "expected": "50.00",
+      "actual": "50.00",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-09",
+      "case_id": "UTB-09",
+      "row_id": "UTB-09-refund-24h-minus-1m",
+      "requirements": [
+        "BR-08"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Refund percentage at 24/48-hour boundaries",
+      "kind": "refund",
+      "inputs": {
+        "total": "100.00",
+        "hours": 23.983333333333334
+      },
+      "expected": "0.00",
+      "actual": "0.00",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-09",
+      "case_id": "UTB-09",
+      "row_id": "UTB-09-refund-at-pickup",
+      "requirements": [
+        "BR-08"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Refund percentage at 24/48-hour boundaries",
+      "kind": "refund",
+      "inputs": {
+        "total": "100.00",
+        "hours": 0.0
+      },
+      "expected": "0.00",
+      "actual": "0.00",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-09",
+      "case_id": "UTB-09",
+      "row_id": "UTB-09-refund-after-pickup",
+      "requirements": [
+        "BR-08"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Refund percentage at 24/48-hour boundaries",
+      "kind": "refund",
+      "inputs": {
+        "total": "100.00",
+        "hours": -1.0
+      },
+      "expected": "0.00",
+      "actual": "0.00",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-10",
+      "case_id": "UTB-10",
+      "row_id": "UTB-10-0p004",
+      "requirements": [
+        "BR-07"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Round exact decimal money half-up to two places",
+      "kind": "money",
+      "inputs": {
+        "value": "0.004"
+      },
+      "expected": "0.00",
+      "actual": "0.00",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-10",
+      "case_id": "UTB-10",
+      "row_id": "UTB-10-0p005",
+      "requirements": [
+        "BR-07"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Round exact decimal money half-up to two places",
+      "kind": "money",
+      "inputs": {
+        "value": "0.005"
+      },
+      "expected": "0.01",
+      "actual": "0.01",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-10",
+      "case_id": "UTB-10",
+      "row_id": "UTB-10-1p004",
+      "requirements": [
+        "BR-07"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Round exact decimal money half-up to two places",
+      "kind": "money",
+      "inputs": {
+        "value": "1.004"
+      },
+      "expected": "1.00",
+      "actual": "1.00",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-10",
+      "case_id": "UTB-10",
+      "row_id": "UTB-10-1p005",
+      "requirements": [
+        "BR-07"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Round exact decimal money half-up to two places",
+      "kind": "money",
+      "inputs": {
+        "value": "1.005"
+      },
+      "expected": "1.01",
+      "actual": "1.01",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-10",
+      "case_id": "UTB-10",
+      "row_id": "UTB-10-1p006",
+      "requirements": [
+        "BR-07"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Round exact decimal money half-up to two places",
+      "kind": "money",
+      "inputs": {
+        "value": "1.006"
+      },
+      "expected": "1.01",
+      "actual": "1.01",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-10",
+      "case_id": "UTB-10",
+      "row_id": "UTB-10-2p675",
+      "requirements": [
+        "BR-07"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Round exact decimal money half-up to two places",
+      "kind": "money",
+      "inputs": {
+        "value": "2.675"
+      },
+      "expected": "2.68",
+      "actual": "2.68",
+      "status": "PASS"
+    },
+    {
+      "report_id": "UTB-10",
+      "case_id": "UTB-10",
+      "row_id": "UTB-10-99p995",
+      "requirements": [
+        "BR-07"
+      ],
+      "technique": "Boundary value analysis",
+      "objective": "Round exact decimal money half-up to two places",
+      "kind": "money",
+      "inputs": {
+        "value": "99.995"
+      },
+      "expected": "100.00",
+      "actual": "100.00",
+      "status": "PASS"
+    }
+  ]
+}

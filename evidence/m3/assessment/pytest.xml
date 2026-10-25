@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="11" skipped="0" tests="55" time="1.354" timestamp="2026-10-22T21:05:31.299115+01:00" hostname="ChrisThriamvos"><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-economy-20]" time="0.003" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-economy-21]" time="0.000"><failure message="AssertionError: UTB-01-economy-21: {'valid': {'expected': True, 'actual': False}}&#10;assert not {'valid': {'expected': True, 'actual': False}}">case = {'case_id': 'UTB-01', 'row_id': 'UTB-01-economy-21', 'requirements': ['BR-01', 'BR-02'], 'technique': 'Equivalence partitioning / boundary values / decision table', ...}
+
+    @pytest.mark.parametrize("case", AGE, ids=lambda case: case["row_id"])
+    def test_utb01_age_eligibility(case):
+        # Cross the age boundaries for both categories, then try invalid ages.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-01', 'row_id': 'UTB-01-economy-21', 'requirements': ['BR-01', 'BR-02'], 'technique': 'Equivalence partitioning / boundary values / decision table', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-01-economy-21: {'valid': {'expected': True, 'actual': False}}
+E       assert not {'valid': {'expected': True, 'actual': False}}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-economy-22]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-economy-24]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-economy-25]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-economy-26]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-economy-74]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-economy-75]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-economy-76]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-luxury-20]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-luxury-21]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-luxury-22]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-luxury-24]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-luxury-25]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-luxury-26]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-luxury-74]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-luxury-75]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-luxury-76]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-fraction-text]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-fraction-number]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-letters]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-empty]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb01_age_eligibility[UTB-01-missing]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-02-worked-example]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-24-days-6-gps-0-ins-0]" time="0.000"><failure message="AssertionError: UTB-08-age-24-days-6-gps-0-ins-0: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '330.00', 'actual': '255.00'}}&#10;assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '330.00', 'actual': '255.00'}}">case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-0-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", PRICE, ids=lambda case: case["row_id"])
+    def test_utb02_price_components(case):
+        # Start with the worked example, then vary the four decision-table inputs.
+        # Checking each component helps identify why a total is wrong.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-0-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-6-gps-0-ins-0: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '330.00', 'actual': '255.00'}}
+E       assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '330.00', 'actual': '255.00'}}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-24-days-6-gps-0-ins-1]" time="0.000"><failure message="AssertionError: UTB-08-age-24-days-6-gps-0-ins-1: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '402.00', 'actual': '327.00'}}&#10;assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '402.00', 'actual': '327.00'}}">case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-0-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", PRICE, ids=lambda case: case["row_id"])
+    def test_utb02_price_components(case):
+        # Start with the worked example, then vary the four decision-table inputs.
+        # Checking each component helps identify why a total is wrong.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-0-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-6-gps-0-ins-1: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '402.00', 'actual': '327.00'}}
+E       assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '402.00', 'actual': '327.00'}}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-24-days-6-gps-1-ins-0]" time="0.000"><failure message="AssertionError: UTB-08-age-24-days-6-gps-1-ins-0: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '360.00', 'actual': '285.00'}}&#10;assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '360.00', 'actual': '285.00'}}">case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-1-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", PRICE, ids=lambda case: case["row_id"])
+    def test_utb02_price_components(case):
+        # Start with the worked example, then vary the four decision-table inputs.
+        # Checking each component helps identify why a total is wrong.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-1-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-6-gps-1-ins-0: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '360.00', 'actual': '285.00'}}
+E       assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '360.00', 'actual': '285.00'}}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-24-days-6-gps-1-ins-1]" time="0.000"><failure message="AssertionError: UTB-08-age-24-days-6-gps-1-ins-1: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '432.00', 'actual': '357.00'}}&#10;assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '432.00', 'actual': '357.00'}}">case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-1-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", PRICE, ids=lambda case: case["row_id"])
+    def test_utb02_price_components(case):
+        # Start with the worked example, then vary the four decision-table inputs.
+        # Checking each component helps identify why a total is wrong.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-6-gps-1-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-6-gps-1-ins-1: {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '432.00', 'actual': '357.00'}}
+E       assert not {'surcharge': {'expected': '90.00', 'actual': '15.00'}, 'total': {'expected': '432.00', 'actual': '357.00'}}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-24-days-7-gps-0-ins-0]" time="0.000"><failure message="AssertionError: UTB-08-age-24-days-7-gps-0-ins-0: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '357.00', 'actual': '267.00'}}&#10;assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '357.00', 'actual': '267.00'}}">case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-0-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", PRICE, ids=lambda case: case["row_id"])
+    def test_utb02_price_components(case):
+        # Start with the worked example, then vary the four decision-table inputs.
+        # Checking each component helps identify why a total is wrong.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-0-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-7-gps-0-ins-0: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '357.00', 'actual': '267.00'}}
+E       assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '357.00', 'actual': '267.00'}}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-24-days-7-gps-0-ins-1]" time="0.000"><failure message="AssertionError: UTB-08-age-24-days-7-gps-0-ins-1: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '441.00', 'actual': '351.00'}}&#10;assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '441.00', 'actual': '351.00'}}">case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-0-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", PRICE, ids=lambda case: case["row_id"])
+    def test_utb02_price_components(case):
+        # Start with the worked example, then vary the four decision-table inputs.
+        # Checking each component helps identify why a total is wrong.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-0-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-7-gps-0-ins-1: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '441.00', 'actual': '351.00'}}
+E       assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '441.00', 'actual': '351.00'}}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-24-days-7-gps-1-ins-0]" time="0.000"><failure message="AssertionError: UTB-08-age-24-days-7-gps-1-ins-0: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '392.00', 'actual': '302.00'}}&#10;assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '392.00', 'actual': '302.00'}}">case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-1-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", PRICE, ids=lambda case: case["row_id"])
+    def test_utb02_price_components(case):
+        # Start with the worked example, then vary the four decision-table inputs.
+        # Checking each component helps identify why a total is wrong.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-1-ins-0', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-7-gps-1-ins-0: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '392.00', 'actual': '302.00'}}
+E       assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '392.00', 'actual': '302.00'}}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-24-days-7-gps-1-ins-1]" time="0.000"><failure message="AssertionError: UTB-08-age-24-days-7-gps-1-ins-1: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '476.00', 'actual': '386.00'}}&#10;assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '476.00', 'actual': '386.00'}}">case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-1-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    @pytest.mark.parametrize("case", PRICE, ids=lambda case: case["row_id"])
+    def test_utb02_price_components(case):
+        # Start with the worked example, then vary the four decision-table inputs.
+        # Checking each component helps identify why a total is wrong.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-08', 'row_id': 'UTB-08-age-24-days-7-gps-1-ins-1', 'requirements': ['BR-04', 'BR-05', 'BR-06', 'BR-07'], 'technique': 'Full 16-rule decision table', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-08-age-24-days-7-gps-1-ins-1: {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '476.00', 'actual': '386.00'}}
+E       assert not {'surcharge': {'expected': '105.00', 'actual': '15.00'}, 'total': {'expected': '476.00', 'actual': '386.00'}}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-25-days-6-gps-0-ins-0]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-25-days-6-gps-0-ins-1]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-25-days-6-gps-1-ins-0]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-25-days-6-gps-1-ins-1]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-25-days-7-gps-0-ins-0]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-25-days-7-gps-0-ins-1]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-25-days-7-gps-1-ins-0]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb02_price_components[UTB-08-age-25-days-7-gps-1-ins-1]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb09_refund_boundaries[UTB-09-refund-48h-plus-1m]" time="0.000"><failure message="AssertionError: UTB-09-refund-48h-plus-1m: {'expected': '100.00', 'actual': '50.00'}&#10;assert not {'expected': '100.00', 'actual': '50.00'}">case = {'case_id': 'UTB-09', 'row_id': 'UTB-09-refund-48h-plus-1m', 'requirements': ['BR-08'], 'technique': 'Boundary value analysis', ...}
+
+    @pytest.mark.parametrize("case", REFUND, ids=lambda case: case["row_id"])
+    def test_utb09_refund_boundaries(case):
+        # The exact cutoff matters: 48 hours gets a full refund, 24 gets half.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-09', 'row_id': 'UTB-09-refund-48h-plus-1m', 'requirements': ['BR-08'], 'technique': 'Boundary value analysis', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-09-refund-48h-plus-1m: {'expected': '100.00', 'actual': '50.00'}
+E       assert not {'expected': '100.00', 'actual': '50.00'}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb09_refund_boundaries[UTB-09-refund-48h]" time="0.000"><failure message="AssertionError: UTB-09-refund-48h: {'expected': '100.00', 'actual': '50.00'}&#10;assert not {'expected': '100.00', 'actual': '50.00'}">case = {'case_id': 'UTB-09', 'row_id': 'UTB-09-refund-48h', 'requirements': ['BR-08'], 'technique': 'Boundary value analysis', ...}
+
+    @pytest.mark.parametrize("case", REFUND, ids=lambda case: case["row_id"])
+    def test_utb09_refund_boundaries(case):
+        # The exact cutoff matters: 48 hours gets a full refund, 24 gets half.
+&gt;       check(case)
+
+tests\unit\test_m3_assessment.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = {'case_id': 'UTB-09', 'row_id': 'UTB-09-refund-48h', 'requirements': ['BR-08'], 'technique': 'Boundary value analysis', ...}
+
+    def check(case):
+        actual = observe(case)
+        mismatch = differences(case, actual)
+&gt;       assert not mismatch, f"{case['row_id']}: {mismatch}"
+E       AssertionError: UTB-09-refund-48h: {'expected': '100.00', 'actual': '50.00'}
+E       assert not {'expected': '100.00', 'actual': '50.00'}
+
+tests\unit\test_m3_assessment.py:22: AssertionError</failure></testcase><testcase classname="tests.unit.test_m3_assessment" name="test_utb09_refund_boundaries[UTB-09-refund-48h-minus-1m]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb09_refund_boundaries[UTB-09-refund-24h-plus-1m]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb09_refund_boundaries[UTB-09-refund-24h]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb09_refund_boundaries[UTB-09-refund-24h-minus-1m]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb09_refund_boundaries[UTB-09-refund-at-pickup]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb09_refund_boundaries[UTB-09-refund-after-pickup]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb10_money_rounding[UTB-10-0p004]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb10_money_rounding[UTB-10-0p005]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb10_money_rounding[UTB-10-1p004]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb10_money_rounding[UTB-10-1p005]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb10_money_rounding[UTB-10-1p006]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb10_money_rounding[UTB-10-2p675]" time="0.000" /><testcase classname="tests.unit.test_m3_assessment" name="test_utb10_money_rounding[UTB-10-99p995]" time="0.000" /></testsuite></testsuites>

@@ -1,0 +1,5 @@
+﻿ID,Test objective,Test type,Input,Expected result,Actual result,Pass / Fail
+UTB-01,Age eligibility,Unit,23 age/category rows,Accept only eligible whole-number ages,22 pass; 1 fail,FAIL
+UTB-02,Price components,Unit,17 pricing rows,Daily surcharge and extras; discount on base only,9 pass; 8 fail,FAIL
+UTB-09,Refund cutoffs,Unit,8 time values; GBP 100,"100%, 50% or 0% according to BR-08",6 pass; 2 fail,FAIL
+UTB-10,Half-up rounding,Unit,7 exact decimal values,Two decimal places with half-up rounding,7 pass,PASS
