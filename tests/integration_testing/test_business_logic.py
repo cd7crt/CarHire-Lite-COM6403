@@ -86,5 +86,5 @@ def test_tc02_invalid_state_transition(client):
 
 
     assert return_res.status_code in [400, 409], (
-        f"Actual result: System accepted illegal state change, returned HTTP {return_res.status_code}"
+        f"Expected HTTP 400 or 409 for illegal state transition, but got HTTP {return_res.status_code}"
     )
