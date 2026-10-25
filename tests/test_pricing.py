@@ -3,7 +3,7 @@ from decimal import Decimal
 
 import pytest
 
-from carhire.evidence.m2.pricing import (
+from carhire.pricing import (
     calculate_late_fee,
     calculate_quote,
     calculate_refund,
